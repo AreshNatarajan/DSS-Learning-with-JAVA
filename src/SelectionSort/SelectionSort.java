@@ -12,29 +12,32 @@ public class SelectionSort {
 			int x = randomeNumber.nextInt(100);
 			Array.add(x);
 		}
-		
-		int n = Array.size();
-		
-		for(int i = 0; i < n -1; i++) {
-			
-			int minIndex = Array.get(i);
-			
-			for(int j = i + 1; j < n ; j++) {
-				
-               
-				if(Array.get(j) < Array.get(minIndex)) {
-					
-					
-					
-				}
-				
-				
-			}
-			
-			
-		}
 
 		System.out.println(Array);
+
+		int ArraySize = Array.size();
+
+		for (int i = 0; i < ArraySize - 1; i++) {
+			int minIndex = i;
+
+			for (int j = i + 1; j < ArraySize; j++) {
+
+				if (Array.get(j) < Array.get(minIndex)) {
+
+					minIndex = j;
+				}
+
+			}
+			
+			if (minIndex != i) {
+				int temp = Array.get(i);
+				Array.set(i, Array.get(minIndex));
+				Array.set(minIndex, temp);
+			}
+		}
+		
+		System.out.println("Sorted Array " + Array);
+
 	}
 
 }
